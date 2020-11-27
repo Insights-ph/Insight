@@ -1,10 +1,7 @@
 import React from "react";
 import {
-  Button,
-  ButtonGroup,
   Card,
   Carousel,
-  Container,
 } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";

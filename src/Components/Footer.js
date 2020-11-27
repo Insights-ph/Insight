@@ -1,5 +1,5 @@
 import { Navbar } from "react-bootstrap";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import homeOutlined from "@iconify-icons/ant-design/home-outlined";
 import searchOutlined from "@iconify-icons/ant-design/search-outlined";
 import bxBookOpen from "@iconify-icons/bx/bx-book-open";

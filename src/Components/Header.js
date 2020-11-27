@@ -1,5 +1,5 @@
 import { Navbar } from "react-bootstrap";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import profileIcon from "@iconify-icons/gg/profile";
 
 export default function Header() {

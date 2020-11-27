@@ -5,7 +5,6 @@ import {
   Form,
   Image,
   InputGroup,
-  Row,
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import FormInput from "../Components/FormInput";
