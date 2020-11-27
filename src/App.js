@@ -1,28 +1,23 @@
 import React from "react";
-import { Button, ButtonGroup } from "react-bootstrap"
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Homepage from "./Pages/Homepage";
+import Login from "./Pages/Login";
 
 function App() {
   return (
-    <div className="container text-center">
-      <h1>Homepage</h1>
-      <ButtonGroup>
-      <Button variant="theme-background">
-        theme-background
-      </Button>
-      <Button variant="theme-accent-dark">
-        theme-accent-dark
-      </Button>
-      <Button variant="theme-accent-mid">
-        theme-accent-mid
-      </Button>
-      <Button variant="theme-accent-light">
-        theme-accent-light
-      </Button>
-      <Button variant="theme-foreground">
-        theme-foreground
-      </Button>
-      </ButtonGroup>
-    </div>
+    <Container
+      className="d-flex text-center align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </Router>
+    </Container>
   );
 }
 
