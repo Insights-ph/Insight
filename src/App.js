@@ -8,10 +8,7 @@ import Signup from "./Pages/Signup";
 
 function App() {
   return (
-    <Container
-      className="d-flex text-center align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
-    >
+    <div className="w-100">
       <Router>
         <Switch>
           <Route exact path="/" component={Homepage} />
@@ -19,7 +16,7 @@ function App() {
           <Route path="/signup" component={Signup} />
         </Switch>
       </Router>
-    </Container>
+    </div>
   );
 }
 
