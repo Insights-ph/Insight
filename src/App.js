@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button, ButtonGroup } from "react-bootstrap"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container text-center">
+      <h1>Homepage</h1>
+      <ButtonGroup>
+      <Button variant="theme-background">
+        theme-background
+      </Button>
+      <Button variant="theme-accent-dark">
+        theme-accent-dark
+      </Button>
+      <Button variant="theme-accent-mid">
+        theme-accent-mid
+      </Button>
+      <Button variant="theme-accent-light">
+        theme-accent-light
+      </Button>
+      <Button variant="theme-foreground">
+        theme-foreground
+      </Button>
+      </ButtonGroup>
     </div>
   );
 }

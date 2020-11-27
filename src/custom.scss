@@ -1,0 +1,9 @@
+$theme-colors: (
+  "theme-background": #182628,
+  "theme-foreground": #f2f2f2,
+  "theme-accent-light": #65ccb8,
+  "theme-accent-mid": #57ba98,
+  "theme-accent-dark": #3b945e,
+);
+
+@import "~bootstrap/scss/bootstrap.scss";
