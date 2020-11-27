@@ -40,6 +40,7 @@ export default function Login() {
             style={{ maxWidth: "200px" }}
             type="submit"
             variant="theme-accent-mid"
+            size="lg"
             className="text-theme-foreground w-100"
           >
             Login
