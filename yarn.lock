@@ -1437,6 +1437,31 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@iconify-icons/ant-design@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/ant-design/-/ant-design-1.1.0.tgz#7fbaa994dcac24195512164595118819e5749bca"
+  integrity sha512-RU3MljXpV3Y777woJb8t1ymJ+4k7QqGDOYsSJxkDHNRkJruPl0CtC/QpXgPYA+beAmhTTfz2HPZSJXYnZUlAmg==
+
+"@iconify-icons/bi@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/bi/-/bi-1.1.0.tgz#71ea3a072d5f932348059b0a861964e9b0e6ff8c"
+  integrity sha512-jYC05TEwi8Jlmc0LGL7Jrc/CIjoYfqYYxxfPI1hlj8XXHYhCMSizu1nMoj3vYQ7KoEP4Ge4hbiTl7O6/l68hBw==
+
+"@iconify-icons/bx@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/bx/-/bx-1.1.0.tgz#7c248552375b7a3faba9fee0a632b650336cffdf"
+  integrity sha512-JlCsrgpp4vujb7tDaZtJ/OfeTnsSFyDFSauNO+2ilsHviCb/u3VXbLjdIoDIR5ISGMr0a+W/f0YNOHn3zUqChA==
+
+"@iconify-icons/gg@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/gg/-/gg-1.1.0.tgz#2a308c27fbb80fa0675b96fd1724963df1370aab"
+  integrity sha512-vsM5NIoIj5u9Whm6WiAbYvRa8Qlv0RxLeK0xnYyW9cwa50P//7FbuxBkG2qB03V9vYMhQQJdrynlw4WBF7fToQ==
+
+"@iconify/react@^2.0.0-rc.2":
+  version "2.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@iconify/react/-/react-2.0.0-rc.2.tgz#84b27d41082a571c46711e9b3c5af8cc2b267bfe"
+  integrity sha512-iugsyMA+nTGsFNlL8dWU3bkEiF4vnYQSS0Un+pXukaiVXJgSrafaL/gua0BodBim3u2GzSLFfVwTZJ6SIT6shw==
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -9953,6 +9978,11 @@ react-error-overlay@^6.0.8:
   version "6.0.8"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz#474ed11d04fc6bda3af643447d85e9127ed6b5de"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
+
+react-horizontal-scrolling-menu@^0.7.8:
+  version "0.7.8"
+  resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.7.8.tgz#9b209cb7620209fc1ae5e3fae25a0fe4d83b014e"
+  integrity sha512-81UkisL7BNdG0zboDLsNta8PZ4zrw6m5XpdOlzyxls38BSVqCkm1hsDjvAyL32XUb0UiPtpIBZDA8gI/neBEVA==
 
 react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

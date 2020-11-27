@@ -1,8 +1,6 @@
 $body-color: #182628;
 
 $theme-colors: (
-  "primary":  #57ba98,
-  "secondary":  #65ccb8,
   "light": #f2f2f2,
   "theme-background": #182628,
   "theme-foreground": #f2f2f2,
@@ -11,10 +9,18 @@ $theme-colors: (
   "theme-accent-dark": #3b945e,
 );
 
+$font-family-base: "Nunito", sans-serif;
+$enable-gradients: true;
 
 @import "~bootstrap/scss/bootstrap.scss";
 
 .btn:focus {
   outline: thin;
   box-shadow: none;
+}
+
+.carousel-indicators > li {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
 }
