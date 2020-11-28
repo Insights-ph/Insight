@@ -123,7 +123,13 @@ export default function MyCourses() {
             }}
             className="d-flex align-items-center justify-content-center"
           >
-            <h1 className="m-0 p-0">4</h1>
+            <h1 className="m-0 p-0">
+              {
+                enrolledCourses.filter(
+                  (item) => item.status.toLowerCase() === "ongoing"
+                ).length
+              }
+            </h1>
           </span>
           <h4 className="d-flex align-items-center">
             CURRENTLY ENROLLED COURSES
