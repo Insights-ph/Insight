@@ -14,6 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import { cardData } from "../MockData/Courses";
 import { useAuth } from "../Context/AuthContext";
+import myCoursesImage from "../Images/my-courses.png";
 
 const cardItems = [
   {
@@ -111,7 +112,8 @@ export default function MyCourses() {
           className="text-white d-flex align-items-left justify-content-around"
           style={{
             borderRadius: "0",
-            background: "linear-gradient(to bottom, #3b945e, #65ccb8, #65ccb8)",
+            background: `linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${myCoursesImage})`,
+            backgroundSize: "cover"
           }}
         >
           <span
@@ -121,7 +123,7 @@ export default function MyCourses() {
               minWidth: "5rem",
               minHeight: "5rem",
             }}
-            className="d-flex align-items-center justify-content-center"
+            className="d-flex align-items-center justify-content-center shadow"
           >
             <h1 className="m-0 p-0">
               {
