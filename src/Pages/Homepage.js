@@ -33,12 +33,12 @@ export default function Homepage() {
   ));
 
   let cardItems = cardData.map((card) => (
-    <Link to={`/courses/${card.slug}`}>
-      <Card
-        key={card.slug}
-        className="shadow h-100 p-0 m-0"
-        style={{ width: "10rem", borderRadius: 0 }}
-      >
+    <Card
+      className="shadow h-100 p-0 m-0"
+      style={{ width: "10rem", borderRadius: 0 }}
+      key={card.slug}
+    >
+      <Link to={`/courses/${card.slug}`}>
         <Card.Img
           variant="top"
           src={card.imgUrl}
@@ -61,8 +61,8 @@ export default function Homepage() {
             <small>{card.enrolled}</small>
           </Card.Text>
         </Card.Body>
-      </Card>
-    </Link>
+      </Link>
+    </Card>
   ));
 
   return (
@@ -91,8 +91,9 @@ export default function Homepage() {
             data={cardItems}
             alignCenter={false}
             hideArrows
-            innerWrapperClass="pl-3 d-flex align-items-stretch"
-            itemClass="card-deck mr-4 mb-4"
+            dragging
+            innerWrapperClass="pl-3 d-flex align-items-stretch "
+            itemClass="pr-5 pb-4 cursor-default"
           />
         </div>
 
