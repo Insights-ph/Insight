@@ -9,7 +9,7 @@ export const cardData = [
     rating: "4.3",
     enrolled: "901",
     slug: "1",
-    tags: []
+    tags: [],
   },
   {
     imgUrl: "https://picsum.photos/seed/g/300/200",
@@ -19,9 +19,9 @@ export const cardData = [
     authorID: "4",
     name: "Loven Garcia",
     rating: "4.5",
-    enrolled: "1902",
+    enrolled: "117",
     slug: "2",
-    tags: []
+    tags: [],
   },
   {
     imgUrl: "https://picsum.photos/seed/h/300/200",
@@ -31,9 +31,9 @@ export const cardData = [
     authorID: "3",
     name: "Van Philip Panugan",
     rating: "4.5",
-    enrolled: "1902",
+    enrolled: "282",
     slug: "3",
-    tags: ["AR/VR"]
+    tags: ["AR/VR"],
   },
   {
     imgUrl: "https://picsum.photos/seed/i/300/200",
@@ -43,9 +43,9 @@ export const cardData = [
     authorID: "2",
     name: "Rane Gillian Villanueva",
     rating: "4.5",
-    enrolled: "1902",
+    enrolled: "102",
     slug: "4",
-    tags: []
+    tags: [],
   },
   {
     imgUrl: "https://picsum.photos/seed/j/300/200",
@@ -55,9 +55,21 @@ export const cardData = [
     authorID: "1",
     name: "DepEd Laguna",
     rating: "4.5",
-    enrolled: "1902",
+    enrolled: "192",
     slug: "5",
-    tags: ["AR/VR"]
+    tags: ["AR/VR"],
+  },
+  {
+    imgUrl: "https://picsum.photos/seed/k/300/200",
+    title: "Microprocessors Laboratory",
+    description:
+      "In this course, you will examine the very atoms that make up all matter on Earth, discover how electricity has been harnessed to operate machinery, uncover how our body tissues grow and regenerate, and explore the far-off stars and planets of our galaxy.",
+    authorID: "1",
+    name: "DepEd Laguna",
+    rating: "4.5",
+    enrolled: "1122",
+    slug: "5",
+    tags: ["AR/VR"],
   },
 ];
 

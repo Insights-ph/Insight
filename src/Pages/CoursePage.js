@@ -72,7 +72,7 @@ export default function CoursePage() {
           <Card.Img
             src={selectedCourse.imgUrl}
             alt={selectedCourse.title}
-            style={{ borderRadius: 0, filter: "brightness(65%)" }}
+            style={{ borderRadius: 0, filter: "brightness(65%)", maxHeight: "50vh", objectFit: "cover" }}
           />
           <Card.ImgOverlay className="d-flex flex-column h-100 align-items-start justify-content-center text-left">
             <h4 >{selectedCourse.title.toUpperCase()}</h4>

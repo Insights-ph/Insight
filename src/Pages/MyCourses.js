@@ -16,27 +16,6 @@ import { cardData } from "../MockData/Courses";
 import { useAuth } from "../Context/AuthContext";
 import myCoursesImage from "../Images/my-courses.png";
 
-const cardItems = [
-  {
-    imgUrl: "https://picsum.photos/seed/a/200/300",
-    title: "Grade 9 Science Lecture",
-    instructor: "Mr. John Rivera",
-    text:
-      "In this course, you will examine the very atoms that make up all matter on Earth, discover how electricity has been harnessed to operate machinery, uncover how our body tissues grow and regenerate, and explore the far-off stars and planets of our galaxy.",
-    progress: 90,
-    tags: [],
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/b/200/300",
-    title: "Grade 9 Science Laboratory",
-    instructor: "Mr. Rane Villanueva",
-    text:
-      "In this course, you will examine the very atoms that make up all matter on Earth, discover how electricity has been harnessed to operate machinery, uncover how our body tissues grow and regenerate, and explore the far-off stars and planets of our galaxy.",
-    progress: 76,
-    tags: ["VR/AR"],
-  },
-];
-
 export default function MyCourses() {
   const { currentUser } = useAuth();
   const [status, setStatus] = useState("ongoing");
@@ -113,7 +92,7 @@ export default function MyCourses() {
           style={{
             borderRadius: "0",
             background: `linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${myCoursesImage})`,
-            backgroundSize: "cover"
+            backgroundSize: "cover",
           }}
         >
           <span

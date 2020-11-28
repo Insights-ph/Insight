@@ -10,7 +10,7 @@ import peopleIcon from "@iconify-icons/bi/people";
 import { cardData } from "../MockData/Courses";
 
 export default function Homepage() {
-  let carouselItems = cardData.map((data) => (
+  let carouselItems = cardData.slice(0, 5).map((data) => (
     <Carousel.Item key={data.slug}>
       <img
         loading="lazy"
@@ -19,7 +19,11 @@ export default function Homepage() {
         className="d-block w-100"
         alt={data.title}
         src={data.imgUrl}
-        style={{ filter: "brightness(65%)", maxHeight: "50vh" }}
+        style={{
+          filter: "brightness(65%)",
+          maxHeight: "50vh",
+          objectFit: "cover",
+        }}
       />
       <Carousel.Caption
         className="d-flex flex-column justify-content-center"
@@ -32,7 +36,7 @@ export default function Homepage() {
     </Carousel.Item>
   ));
 
-  let cardItems = cardData.map((card) => (
+  let cardItems = cardData.slice(0, 10).map((card) => (
     <Card
       className="shadow h-100 p-0 m-0"
       style={{ width: "10rem", borderRadius: 0 }}
