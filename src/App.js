@@ -5,6 +5,7 @@ import Homepage from "./Pages/Homepage";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import MyCourses from "./Pages/MyCourses";
+import CoursePage from "./Pages/CoursePage";
 
 function App() {
   return (
@@ -12,11 +13,12 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/dashboard" component={Homepage} />
-          <Route path="/explore" component={Homepage} />
-          <Route path="/courses" component={MyCourses} />
-          <Route path="/settings" component={Homepage} />
-          <Route path="/register" component={Register} />
+          <Route exact path="/dashboard" component={Homepage} />
+          <Route exact path="/explore" component={Homepage} />
+          <Route exact path="/courses/" component={MyCourses} />
+          <Route exact path="/courses/:courseId" component={CoursePage} />
+          <Route exact path="/settings" component={Homepage} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </Router>
     </div>

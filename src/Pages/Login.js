@@ -75,7 +75,7 @@ export default function Login() {
               />
               <Form.Control
                 as={Button}
-                variant="theme-accent-light"
+                variant="outline-theme-accent-light"
                 className="bg-theme-foreground text-theme-accent-light"
                 onClick={(e) => {
                   e.preventDefault();

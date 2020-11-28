@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import {
@@ -7,13 +7,17 @@ import {
   Col,
   Container,
   Form,
+  Image,
   Jumbotron,
   Row,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { cardData } from "../MockData/Courses";
+import { useAuth } from "../Context/AuthContext";
 
 const cardItems = [
   {
-    imgUrl: "https://picsum.photos/seed/a/300/200",
+    imgUrl: "https://picsum.photos/seed/a/200/300",
     title: "Grade 9 Science Lecture",
     instructor: "Mr. John Rivera",
     text:
@@ -22,7 +26,7 @@ const cardItems = [
     tags: [],
   },
   {
-    imgUrl: "https://picsum.photos/seed/a/300/200",
+    imgUrl: "https://picsum.photos/seed/b/200/300",
     title: "Grade 9 Science Laboratory",
     instructor: "Mr. Rane Villanueva",
     text:
@@ -33,24 +37,63 @@ const cardItems = [
 ];
 
 export default function MyCourses() {
-  const cards = cardItems.map((card) => (
-    <Card>
-      <Row>
-        <Col md={4}>
-          <Card.Img variant="top" src={card.imgUrl} />
-        </Col>
-        <Col md={8}>
-          <Card.Body>
-            <Card.Title>{card.title}</Card.Title>
-            <Card.Text>{card.instructor}</Card.Text>
-            <Card.Text>{card.text}</Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">{`PROGRESS: ${card.progress}%`}</small>
-          </Card.Footer>
-        </Col>
-      </Row>
-    </Card>
+  const { currentUser } = useAuth();
+  const [status, setStatus] = useState("ongoing");
+
+  const enrolledCourses = cardData.reduce((acc, course) => {
+    const enrolled = currentUser.coursesEnrolled.find(
+      ({ courseId }) => course.slug === courseId
+    );
+    if (enrolled) acc.push({ ...enrolled, ...course });
+    return acc;
+  }, []);
+
+  const selectedCourses =
+    status === "all"
+      ? enrolledCourses
+      : enrolledCourses.filter(
+          (course) => course.status.toLowerCase() === status.toLowerCase()
+        );
+
+  const cards = selectedCourses.map((card) => (
+    <div class="d-flex flex-row w-100 mb-4 shadow" key={card.slug}>
+      <Image
+        src={card.imgUrl}
+        className="p-0 mt-2 mb-2 ml-2 mr-0 flex-shrink-1"
+        style={{ width: "90px", objectFit: "cover" }}
+      />
+      <Container className="text-justify flex-grow-1 w-100 p-2 my-auto ">
+        <Link to={`/courses/${card.slug}`} className="text-theme-background">
+          <h6 className="font-weight-bold mb-0 text-left">{card.title}</h6>
+          <p className="mb-1 font-weight-bold" style={{ fontSize: "0.8rem" }}>
+            {card.name}
+          </p>
+          <p
+            className="mb-1"
+            style={{ fontSize: "0.8rem", lineHeight: "0.9rem" }}
+          >
+            {card.description}
+          </p>
+        </Link>
+        <div
+          style={{ fontSize: "0.9rem" }}
+          className="font-weight-bold text-right"
+        >
+          {card.tags.map((tag) => (
+            <span className="text-theme-accent-dark">
+              {tag}&nbsp;&nbsp;&nbsp;
+            </span>
+          ))}
+          <span className="text-theme-accent-light">{`PROGRESS: ${card.progress}%`}</span>
+        </div>
+        <p
+          className="mb-0 text-right"
+          style={{ fontSize: "0.6rem", lineHeight: "0.9rem" }}
+        >
+          STATUS: {card.status.toUpperCase()}
+        </p>
+      </Container>
+    </div>
   ));
 
   return (
@@ -87,16 +130,18 @@ export default function MyCourses() {
           </h4>
         </Jumbotron>
         <Container>
-          <Form>
+          <Form className="mb-4">
             <Form.Group controlId="exampleForm.SelectCustom">
               <Form.Control
                 as="select"
                 className="bg-theme-foreground shadow text-theme-background font-weight-bold"
                 custom
+                onChange={(e) => setStatus(e.target.value)}
               >
-                <option>Ongoing</option>
-                <option>Completed</option>
-                <option>Incomplete</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="taken">Taken</option>
+                <option value="unenrolled">Unenrolled</option>
+                <option value="all">All</option>
               </Form.Control>
             </Form.Group>
           </Form>

@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  Card,
-  Carousel,
-} from "react-bootstrap";
+import { Card, Carousel, Container } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
@@ -10,76 +7,10 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 import { InlineIcon } from "@iconify/react";
 import starOutlined from "@iconify-icons/ant-design/star-outlined";
 import peopleIcon from "@iconify-icons/bi/people";
-
-const carouselData = [
-  {
-    imgUrl: "https://picsum.photos/seed/a/300/200",
-    title: "Introduction to Laboratory Aparatus",
-    slug: "1",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/b/300/200",
-    title: "Kultura at Pagkakakilanlan",
-    slug: "2",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/c/300/200",
-    title: "Title 3",
-    slug: "3",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/d/300/200",
-    title: "Title 4",
-    slug: "4",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/e/300/200",
-    title: "Title 5",
-    slug: "5",
-  },
-];
-
-const cardData = [
-  {
-    imgUrl: "https://picsum.photos/seed/f/300/200",
-    title: "Introduction to Baybayin",
-    author: "DepEd Laguna",
-    authorID: "1",
-    rating: "4.3",
-    enrolled: "901",
-    slug: "5",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/g/300/200",
-    title: "Kultura at Pagkakakilanlan",
-    author: "DepEd Laguna",
-    authorID: "1",
-    rating: "4.5",
-    enrolled: "1902",
-    slug: "6",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/h/300/200",
-    title: "Chemistry Laboratory",
-    author: "DepEd Laguna",
-    authorID: "1",
-    rating: "4.5",
-    enrolled: "1902",
-    slug: "7",
-  },
-  {
-    imgUrl: "https://picsum.photos/seed/i/300/200",
-    title: "Digital Signals Processing Laboratory",
-    author: "DepEd Laguna",
-    authorID: "1",
-    rating: "4.5",
-    enrolled: "1902",
-    slug: "7",
-  },
-];
+import { cardData } from "../MockData/Courses";
 
 export default function Homepage() {
-  let carouselItems = carouselData.map((data) => (
+  let carouselItems = cardData.map((data) => (
     <Carousel.Item key={data.slug}>
       <img
         loading="lazy"
@@ -94,7 +25,7 @@ export default function Homepage() {
         className="d-flex flex-column justify-content-center"
         style={{ height: "90%" }}
       >
-        <Link to={`/${data.slug}`} className="text-white">
+        <Link to={`/courses/${data.slug}`} className="text-white">
           <h5>{data.title}</h5>
         </Link>
       </Carousel.Caption>
@@ -102,38 +33,40 @@ export default function Homepage() {
   ));
 
   let cardItems = cardData.map((card) => (
-    <Card
-      key={card.slug}
-      className="mr-4 shadow mb-4 h-100"
-      style={{ width: "10rem", borderRadius: 0 }}
-    >
-      <Card.Img
-        variant="top"
-        src={card.imgUrl}
-        loading="lazy"
-        width={200}
-        length={200}
-        style={{ borderRadius: 0 }}
-      />
-      <Card.Body className="d-flex flex-column p-2">
-        <h6 className="font-weight-bold font">{card.title}</h6>
-        <Card.Text className="mt-auto">
-          <small>{card.author.toUpperCase()}</small>
-          <br />
-          <InlineIcon icon={starOutlined} />
-          &nbsp;
-          <small>{card.rating}</small>
-          <br />
-          <InlineIcon icon={peopleIcon} />
-          &nbsp;
-          <small>{card.enrolled}</small>
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <Link to={`/courses/${card.slug}`}>
+      <Card
+        key={card.slug}
+        className="shadow h-100 p-0 m-0"
+        style={{ width: "10rem", borderRadius: 0 }}
+      >
+        <Card.Img
+          variant="top"
+          src={card.imgUrl}
+          loading="lazy"
+          width={200}
+          length={200}
+          style={{ borderRadius: 0 }}
+        />
+        <Card.Body className="d-flex flex-column p-2 text-theme-background">
+          <h6 className="font-weight-bold ">{card.title}</h6>
+          <Card.Text className="mt-auto">
+            <small>{card.name.toUpperCase()}</small>
+            <br />
+            <InlineIcon icon={starOutlined} />
+            &nbsp;
+            <small>{card.rating}</small>
+            <br />
+            <InlineIcon icon={peopleIcon} />
+            &nbsp;
+            <small>{card.enrolled}</small>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
   ));
 
   return (
-    <div className="position-relative">
+    <Container fluid="md" className="position-relative mx-auto p-0">
       <Header />
       <div
         className="text-center"
@@ -145,7 +78,7 @@ export default function Homepage() {
       >
         <Carousel
           controls={false}
-          interval={null}
+          interval={5000}
           style={{ maxHeight: "50vh" }}
         >
           {carouselItems}
@@ -159,7 +92,7 @@ export default function Homepage() {
             alignCenter={false}
             hideArrows
             innerWrapperClass="pl-3 d-flex align-items-stretch"
-            itemClass="d-flex flex-column"
+            itemClass="card-deck mr-4 mb-4"
           />
         </div>
 
@@ -172,6 +105,6 @@ export default function Homepage() {
         <p>Lorem ipsum</p> */}
       </div>
       <Footer />
-    </div>
+    </Container>
   );
 }
