@@ -37,8 +37,6 @@ export default function CoursePage() {
     (item) => item.slug === courseId.toString()
   )[0];
 
-  console.log(selectedCourse);
-
   let lessonAccordion = lessons.map((lesson) => (
     <Card>
       <Accordion.Toggle

@@ -9,7 +9,8 @@ import {
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../Images/icon-512x512.png";
-import FormInput from "../Components/FormInput";
+
+import AnimatedFormInput from "../Components/AnimatedFormInput";
 
 export default function Signup() {
   const history = useHistory();
@@ -25,12 +26,6 @@ export default function Signup() {
   const [message, setMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [showPass2, setShowPass2] = useState(false);
-
-  const onChange = (e) => {
-    setMessage("");
-    setError("");
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
 
   useEffect(() => {
     document.title = "Signup | Insight";
@@ -63,90 +58,64 @@ export default function Signup() {
         <div>
           {error ? <Alert variant="danger">{error}</Alert> : null}
           <Form.Group className="text-left">
-            <Form.Label>FIRST NAME</Form.Label>
-            <FormInput
+            <AnimatedFormInput
+              label="FIRST NAME"
               type="text"
               required
-              placeholder="Juan"
               name="firstName"
-              onChange={onChange}
+              setUser={setUser}
+              setError={setError}
+              setMessage={setMessage}
+              user={user}
             />
           </Form.Group>
           <Form.Group className="text-left">
-            <Form.Label>LAST NAME</Form.Label>
-            <FormInput
+            <AnimatedFormInput
+              label="LAST NAME"
               type="text"
               required
-              placeholder="De La Cruz"
               name="lastName"
-              onChange={onChange}
+              setUser={setUser}
+              setError={setError}
+              setMessage={setMessage}
+              user={user}
             />
           </Form.Group>
           <Form.Group className="text-left">
-            <Form.Label>EMAIL</Form.Label>
-            <FormInput
+            <AnimatedFormInput
+              label="EMAIL"
               type="email"
               required
-              placeholder="email@domain.com"
               name="email"
-              onChange={onChange}
+              setUser={setUser}
+              setError={setError}
+              setMessage={setMessage}
+              user={user}
             />
           </Form.Group>
           <Form.Group className="text-left">
-            <Form.Label className="text-left">PASSWORD</Form.Label>
-            <InputGroup>
-              <FormInput
-                type={showPass ? "text" : "password"}
-                required
-                placeholder="**********"
-                name="password"
-                onChange={onChange}
-                inline
-              />
-              <Form.Control
-                as={Button}
-                variant="outline-theme-accent-light"
-                className="bg-theme-foreground text-theme-accent-light"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowPass(!showPass);
-                }}
-                style={{
-                  maxWidth: "80px",
-                  borderWidth: "0 0 3px",
-                }}
-              >
-                {showPass ? "HIDE" : "SHOW"}
-              </Form.Control>
-            </InputGroup>
+            <AnimatedFormInput
+              label="PASSWORD"
+              type={showPass ? "text" : "password"}
+              required
+              name="password"
+              setUser={setUser}
+              setError={setError}
+              setMessage={setMessage}
+              user={user}
+            />
           </Form.Group>
           <Form.Group className="text-left">
-            <Form.Label className="text-left">CONFIRM PASSWORD</Form.Label>
-            <InputGroup>
-              <FormInput
-                type={showPass2 ? "text" : "password"}
-                required
-                placeholder="**********"
-                name="confPassword"
-                onChange={onChange}
-                inline
-              />
-              <Form.Control
-                as={Button}
-                variant="outline-theme-accent-light"
-                className="bg-theme-foreground text-theme-accent-light"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowPass2(!showPass2);
-                }}
-                style={{
-                  maxWidth: "80px",
-                  borderWidth: "0 0 3px",
-                }}
-              >
-                {showPass2 ? "HIDE" : "SHOW"}
-              </Form.Control>
-            </InputGroup>
+            <AnimatedFormInput
+              label="CONFIRM PASSWORD"
+              type={showPass2 ? "text" : "password"}
+              required
+              name="confPassword"
+              setUser={setUser}
+              setError={setError}
+              setMessage={setMessage}
+              user={user}
+            />
           </Form.Group>
         </div>
         <div>

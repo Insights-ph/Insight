@@ -6,9 +6,9 @@ export default function FormInput({ ...rest }) {
     <>
       <Form.Control
         {...rest}
-        className="bg-theme-foreground border-theme-accent-light"
+        className="border-theme-accent-light text-background font-weight-bold"
         style={{
-          borderWidth: "0 0 3px 0"
+          borderWidth: "0 0 2px 0"
         }}
       />
     </>

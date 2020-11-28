@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Container,
-  Form,
-  Image,
-  InputGroup,
-} from "react-bootstrap";
+import { Alert, Button, Container, Form, Image } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import FormInput from "../Components/FormInput";
+
+import AnimatedFormInput from "../Components/AnimatedFormInput";
 
 import Logo from "../Images/icon-512x512.png";
 
@@ -19,17 +14,10 @@ export default function Login() {
   });
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [showPass, setShowPass] = useState(false);
 
   useEffect(() => {
     document.title = "Login | Insight";
   }, []);
-
-  const onChange = (e) => {
-    setMessage("");
-    setError("");
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,44 +39,30 @@ export default function Login() {
         style={{ maxWidth: "400px", minHeight: "90vh" }}
       >
         <Image fluid src={Logo} className="mt-3" />
+        {error ? <Alert variant="danger">{error}</Alert> : null}
         <div>
           <Form.Group className="text-left">
-            <Form.Label className="font-weight-bold">EMAIL</Form.Label>
-            <FormInput
-              type="email"
-              required
-              placeholder="email@domain.com"
-              name="email"
-              onChange={onChange}
-            />
+              <AnimatedFormInput
+                label="EMAIL"
+                type="email"
+                required
+                name="email"
+                setUser={setUser}
+                setError={setError}
+                setMessage={setMessage}
+                user={user}
+              />
           </Form.Group>
           <Form.Group className="text-left">
-            <Form.Label className="font-weight-bold">PASSWORD</Form.Label>
-            <InputGroup>
-              <FormInput
-                type={showPass ? "text" : "password"}
+              <AnimatedFormInput
+                label="PASSWORD"
                 required
-                placeholder="**********"
                 name="password"
-                onChange={onChange}
-                inline
+                setUser={setUser}
+                setError={setError}
+                user={user}
+                setMessage={setMessage}
               />
-              <Form.Control
-                as={Button}
-                variant="outline-theme-accent-light"
-                className="bg-theme-foreground text-theme-accent-light"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowPass(!showPass);
-                }}
-                style={{
-                  maxWidth: "80px",
-                  borderWidth: "0 0 3px",
-                }}
-              >
-                {showPass ? "HIDE" : "SHOW"}
-              </Form.Control>
-            </InputGroup>
           </Form.Group>
           <Form.Group className="d-flex justify-content-between">
             <Form.Check inline type="checkbox" label="Keep me logged in" />
