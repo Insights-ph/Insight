@@ -34,8 +34,10 @@ export default function CoursePage() {
   const { courseId } = useParams();
 
   const selectedCourse = cardData.filter(
-    (item) => item.slug === courseId.toString()
+    (item) => item.courseId === courseId.toString()
   )[0];
+
+  console.log(selectedCourse)
 
   let lessonAccordion = lessons.map((lesson) => (
     <Card>
@@ -70,10 +72,15 @@ export default function CoursePage() {
           <Card.Img
             src={selectedCourse.imgUrl}
             alt={selectedCourse.title}
-            style={{ borderRadius: 0, filter: "brightness(65%)", maxHeight: "50vh", objectFit: "cover" }}
+            style={{
+              borderRadius: 0,
+              filter: "brightness(65%)",
+              maxHeight: "50vh",
+              objectFit: "cover",
+            }}
           />
           <Card.ImgOverlay className="d-flex flex-column h-100 align-items-start justify-content-center text-left">
-            <h4 >{selectedCourse.title.toUpperCase()}</h4>
+            <h4>{selectedCourse.title.toUpperCase()}</h4>
             <p className="m-0">{selectedCourse.name}</p>
           </Card.ImgOverlay>
         </Card>

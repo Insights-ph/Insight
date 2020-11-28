@@ -2,10 +2,8 @@ import React from "react";
 import {
   Button,
   Card,
-  Carousel,
   Container,
   Form,
-  FormControl,
   InputGroup,
 } from "react-bootstrap";
 import Header from "../Components/Header";
@@ -16,21 +14,18 @@ import { InlineIcon } from "@iconify/react";
 import starOutlined from "@iconify-icons/ant-design/star-outlined";
 import peopleIcon from "@iconify-icons/bi/people";
 import { cardData } from "../MockData/Courses";
-import { useAuth } from "../Context/AuthContext";
 import searchOutlined from "@iconify-icons/ant-design/search-outlined";
 import { Icon } from "@iconify/react";
 
 export default function Explore() {
-  const { currentUser } = useAuth();
-  console.log(currentUser);
 
   let cardItems = cardData.slice(0, 10).map((card) => (
     <Card
       className="shadow h-100 p-0 m-0"
       style={{ width: "10rem", borderRadius: 0 }}
-      key={card.slug}
+      key={card.courseId}
     >
-      <Link to={`/courses/${card.slug}`}>
+      <Link to={`/courses/${card.courseId}`}>
         <Card.Img
           variant="top"
           src={card.imgUrl}
@@ -76,7 +71,7 @@ export default function Explore() {
                 placeholder="Search topics and courses"
                 style={{
                   borderWidth: "2px",
-                  borderRadius: "25px 0 0  25px"
+                  borderRadius: "25px 0 0  25px",
                 }}
               />
               <Form.Control
@@ -86,10 +81,10 @@ export default function Explore() {
                 style={{
                   maxWidth: "50px",
                   borderWidth: "2px 2px 2px 0px",
-                  borderRadius: "0 25px 25px 0"
+                  borderRadius: "0 25px 25px 0",
                 }}
               >
-                <Icon icon={searchOutlined}  style={{ fontSize: "25px" }} />
+                <Icon icon={searchOutlined} style={{ fontSize: "25px" }} />
               </Form.Control>
             </InputGroup>
           </Form>

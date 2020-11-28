@@ -15,7 +15,7 @@ export default function Homepage() {
   console.log(currentUser);
 
   let carouselItems = cardData.slice(0, 5).map((data) => (
-    <Carousel.Item key={data.slug}>
+    <Carousel.Item key={data.courseId}>
       <img
         loading="lazy"
         width={300}
@@ -33,7 +33,7 @@ export default function Homepage() {
         className="d-flex flex-column justify-content-center"
         style={{ height: "90%" }}
       >
-        <Link to={`/courses/${data.slug}`} className="text-white">
+        <Link to={`/courses/${data.courseId}`} className="text-white">
           <h5>{data.title}</h5>
         </Link>
       </Carousel.Caption>
@@ -44,9 +44,9 @@ export default function Homepage() {
     <Card
       className="shadow h-100 p-0 m-0"
       style={{ width: "10rem", borderRadius: 0 }}
-      key={card.slug}
+      key={card.courseId}
     >
-      <Link to={`/courses/${card.slug}`}>
+      <Link to={`/courses/${card.courseId}`}>
         <Card.Img
           variant="top"
           src={card.imgUrl}

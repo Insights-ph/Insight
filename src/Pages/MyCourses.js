@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import {
-  Card,
   CardDeck,
-  Col,
   Container,
   Form,
   Image,
   Jumbotron,
-  Row,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { cardData } from "../MockData/Courses";
@@ -20,13 +17,19 @@ export default function MyCourses() {
   const { currentUser } = useAuth();
   const [status, setStatus] = useState("ongoing");
 
-  const enrolledCourses = cardData.reduce((acc, course) => {
-    const enrolled = currentUser.coursesEnrolled.find(
-      ({ courseId }) => course.slug === courseId
-    );
-    if (enrolled) acc.push({ ...enrolled, ...course });
-    return acc;
-  }, []);
+  function merge(a, b, prop) {
+    let map = new Map(b.map((o) => [o[prop], o]));
+    return a.reduce((acc, o) => {
+      let match = map.get(o[prop]);
+      return match ? acc.concat({ ...o, ...match }) : acc;
+    }, []);
+  }
+
+  const enrolledCourses = merge(
+    currentUser.coursesEnrolled,
+    cardData,
+    "courseId"
+  );
 
   const selectedCourses =
     status === "all"
@@ -36,14 +39,14 @@ export default function MyCourses() {
         );
 
   const cards = selectedCourses.map((card) => (
-    <div class="d-flex flex-row w-100 mb-4 shadow" key={card.slug}>
+    <div className="d-flex flex-row w-100 mb-4 shadow" key={card.courseId}>
       <Image
         src={card.imgUrl}
         className="p-0 mt-2 mb-2 ml-2 mr-0 flex-shrink-1"
         style={{ width: "90px", objectFit: "cover" }}
       />
       <Container className="text-justify flex-grow-1 w-100 p-2 my-auto ">
-        <Link to={`/courses/${card.slug}`} className="text-theme-background">
+        <Link to={`/courses/${card.courseId}`} className="text-theme-background">
           <h6 className="font-weight-bold mb-0 text-left">{card.title}</h6>
           <p className="mb-1 font-weight-bold" style={{ fontSize: "0.8rem" }}>
             {card.name}

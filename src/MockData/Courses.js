@@ -8,7 +8,7 @@ export const cardData = [
     name: "John Rivera",
     rating: "4.3",
     enrolled: "901",
-    slug: "1",
+    courseId: "1",
     tags: [],
   },
   {
@@ -20,7 +20,7 @@ export const cardData = [
     name: "Loven Garcia",
     rating: "4.5",
     enrolled: "117",
-    slug: "2",
+    courseId: "2",
     tags: [],
   },
   {
@@ -32,7 +32,7 @@ export const cardData = [
     name: "Van Philip Panugan",
     rating: "4.5",
     enrolled: "282",
-    slug: "3",
+    courseId: "3",
     tags: ["AR/VR"],
   },
   {
@@ -44,7 +44,7 @@ export const cardData = [
     name: "Rane Gillian Villanueva",
     rating: "4.5",
     enrolled: "102",
-    slug: "4",
+    courseId: "4",
     tags: [],
   },
   {
@@ -56,7 +56,7 @@ export const cardData = [
     name: "DepEd Laguna",
     rating: "4.5",
     enrolled: "192",
-    slug: "5",
+    courseId: "5",
     tags: ["AR/VR"],
   },
   {
@@ -68,7 +68,7 @@ export const cardData = [
     name: "DepEd Laguna",
     rating: "4.5",
     enrolled: "1122",
-    slug: "5",
+    courseId: "5",
     tags: ["AR/VR"],
   },
 ];
