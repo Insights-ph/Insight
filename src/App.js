@@ -7,8 +7,10 @@ import Register from "./Pages/Register";
 import MyCourses from "./Pages/MyCourses";
 import CoursePage from "./Pages/CoursePage";
 
+
 import PrivateRoute from "./HOCs/PrivateRoute";
 import AuthenticatedRoute from "./HOCs/AuthenticatedRoute";
+import Explore from "./Pages/Explore";
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Switch>
           <AuthenticatedRoute exact path="/" component={Login} />
           <PrivateRoute exact path="/dashboard" component={Homepage} />
+          <PrivateRoute exact path="/explore" component={Explore} />
           <PrivateRoute exact path="/explore" component={Homepage} />
           <PrivateRoute exact path="/courses/" component={MyCourses} />
           <PrivateRoute
