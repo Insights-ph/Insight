@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Container, Form, Image } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
 import AnimatedFormInput from "../Components/AnimatedFormInput";
 
@@ -8,24 +9,38 @@ import Logo from "../Images/icon-512x512.png";
 
 export default function Login() {
   const history = useHistory();
+  const { login } = useAuth();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = "Login | Insight";
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     //Authentication codes here
 
     console.log(user);
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(user);
+      history.push("/dashboard");
+    } catch (error) {
+      setError(error.message);
+      console.log(error);
+    }
     // history.push("/");
+    
+    setLoading(false);
   };
 
   return (
@@ -42,27 +57,27 @@ export default function Login() {
         {error ? <Alert variant="danger">{error}</Alert> : null}
         <div>
           <Form.Group className="text-left">
-              <AnimatedFormInput
-                label="EMAIL"
-                type="email"
-                required
-                name="email"
-                setUser={setUser}
-                setError={setError}
-                setMessage={setMessage}
-                user={user}
-              />
+            <AnimatedFormInput
+              label="EMAIL"
+              type="email"
+              required
+              name="email"
+              setUser={setUser}
+              setError={setError}
+              setLoading={setLoading}
+              user={user}
+            />
           </Form.Group>
           <Form.Group className="text-left">
-              <AnimatedFormInput
-                label="PASSWORD"
-                required
-                name="password"
-                setUser={setUser}
-                setError={setError}
-                user={user}
-                setMessage={setMessage}
-              />
+            <AnimatedFormInput
+              label="PASSWORD"
+              required
+              name="password"
+              setUser={setUser}
+              setError={setError}
+              setLoading={setLoading}
+              user={user}
+            />
           </Form.Group>
           <Form.Group className="d-flex justify-content-between">
             <Form.Check inline type="checkbox" label="Keep me logged in" />
@@ -75,6 +90,7 @@ export default function Login() {
         </div>
         <div>
           <Button
+            disabled={loading}
             style={{ maxWidth: "250px" }}
             type="submit"
             variant="theme-accent-light"

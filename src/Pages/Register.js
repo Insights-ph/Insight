@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Button,
   Container,
@@ -9,11 +9,13 @@ import {
 } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../Images/icon-512x512.png";
+import { useAuth } from "../Context/AuthContext";
 
 import AnimatedFormInput from "../Components/AnimatedFormInput";
 
 export default function Signup() {
   const history = useHistory();
+  const { register } = useAuth();
 
   const [user, setUser] = useState({
     email: "",
@@ -23,25 +25,32 @@ export default function Signup() {
     confPassword: "",
   });
   const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [showPass2, setShowPass2] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = "Signup | Insight";
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (user.password !== user.confPassword) {
       return setError("Passwords do not match");
     }
 
-    console.log(user);
     //Authentication codes here
+    try {
+      setError("");
+      setLoading(true);
+      await register(user);
+      history.push("/login");
+    } catch (err) {
+      setError(err.message);
+    }
 
-    // history.push("/login");
+    setLoading(false);
   };
 
   return (
@@ -65,7 +74,7 @@ export default function Signup() {
               name="firstName"
               setUser={setUser}
               setError={setError}
-              setMessage={setMessage}
+              setLoading={setLoading}
               user={user}
             />
           </Form.Group>
@@ -77,7 +86,7 @@ export default function Signup() {
               name="lastName"
               setUser={setUser}
               setError={setError}
-              setMessage={setMessage}
+              setLoading={setLoading}
               user={user}
             />
           </Form.Group>
@@ -89,7 +98,7 @@ export default function Signup() {
               name="email"
               setUser={setUser}
               setError={setError}
-              setMessage={setMessage}
+              setLoading={setLoading}
               user={user}
             />
           </Form.Group>
@@ -101,7 +110,7 @@ export default function Signup() {
               name="password"
               setUser={setUser}
               setError={setError}
-              setMessage={setMessage}
+              setLoading={setLoading}
               user={user}
             />
           </Form.Group>
@@ -113,13 +122,14 @@ export default function Signup() {
               name="confPassword"
               setUser={setUser}
               setError={setError}
-              setMessage={setMessage}
+              setLoading={setLoading}
               user={user}
             />
           </Form.Group>
         </div>
         <div>
           <Button
+            disabled={loading}
             style={{ maxWidth: "250px" }}
             type="submit"
             variant="theme-accent-light"

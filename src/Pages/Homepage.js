@@ -8,8 +8,12 @@ import { InlineIcon } from "@iconify/react";
 import starOutlined from "@iconify-icons/ant-design/star-outlined";
 import peopleIcon from "@iconify-icons/bi/people";
 import { cardData } from "../MockData/Courses";
+import { useAuth } from "../Context/AuthContext";
 
 export default function Homepage() {
+  const { currentUser } = useAuth();
+  console.log(currentUser);
+
   let carouselItems = cardData.slice(0, 5).map((data) => (
     <Carousel.Item key={data.slug}>
       <img

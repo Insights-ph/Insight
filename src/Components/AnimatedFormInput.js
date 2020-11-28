@@ -19,9 +19,9 @@ const variants = {
 export default function AnimatedFormInput({
   label,
   name,
-  setMessage,
   setError,
   setUser,
+  setLoading,
   user,
   required = undefined,
   ...rest
@@ -31,7 +31,7 @@ export default function AnimatedFormInput({
   const [showPass, setShowPass] = useState(false);
 
   const handleChange = (e) => {
-    setMessage("");
+    setLoading(false)
     setError("");
     setUser({ ...user, [e.target.name]: e.target.value });
     e.target.value.length === 0 ? setIsEmpty(true) : setIsEmpty(false);
