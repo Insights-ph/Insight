@@ -35,6 +35,7 @@ export function useAuth() {
 // }
 
 export function AuthProvider({ children }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: "",
     email: "",
@@ -81,6 +82,8 @@ export function AuthProvider({ children }) {
             isOnline: true,
             coursesEnrolled: [],
           });
+
+          setIsAuthenticated(true);
         });
     });
   }
@@ -105,6 +108,7 @@ export function AuthProvider({ children }) {
             });
           });
 
+        setIsAuthenticated(true);
         // await db
         //   .collection("users")
         //   .doc(data.user.uid)
@@ -125,6 +129,8 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) setIsAuthenticated(true);
+      else setIsAuthenticated(false);
       setCurrentUser(
         user
           ? {
@@ -145,6 +151,7 @@ export function AuthProvider({ children }) {
     register,
     login,
     logout,
+    isAuthenticated,
   };
 
   return (

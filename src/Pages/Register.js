@@ -1,12 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Button,
-  Container,
-  Form,
-  Image,
-  Alert,
-  InputGroup,
-} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Container, Form, Image, Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../Images/icon-512x512.png";
 import { useAuth } from "../Context/AuthContext";
@@ -45,7 +38,7 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await register(user);
-      history.push("/login");
+      history.push("/dashboard");
     } catch (err) {
       setError(err.message);
     }

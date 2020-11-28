@@ -7,18 +7,25 @@ import Register from "./Pages/Register";
 import MyCourses from "./Pages/MyCourses";
 import CoursePage from "./Pages/CoursePage";
 
+import PrivateRoute from "./HOCs/PrivateRoute";
+import AuthenticatedRoute from "./HOCs/AuthenticatedRoute";
+
 function App() {
   return (
     <div className="w-100" style={{ minHeight: "100vh" }}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Homepage} />
-          <Route exact path="/explore" component={Homepage} />
-          <Route exact path="/courses/" component={MyCourses} />
-          <Route exact path="/courses/:courseId" component={CoursePage} />
-          <Route exact path="/settings" component={Homepage} />
-          <Route exact path="/register" component={Register} />
+          <AuthenticatedRoute exact path="/" component={Login} />
+          <PrivateRoute exact path="/dashboard" component={Homepage} />
+          <PrivateRoute exact path="/explore" component={Homepage} />
+          <PrivateRoute exact path="/courses/" component={MyCourses} />
+          <PrivateRoute
+            exact
+            path="/courses/:courseId"
+            component={CoursePage}
+          />
+          <PrivateRoute exact path="/settings" component={Homepage} />
+          <AuthenticatedRoute exact path="/register" component={Register} />
         </Switch>
       </Router>
     </div>
