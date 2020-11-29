@@ -37,6 +37,7 @@ Loven Garcia<br>
 ## Overview
 
 
+
 # Insight
 
 To start, install dependencies:
@@ -113,3 +114,28 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Sample-snapshots
+
+### Sign-in Page
+![](README_IMAGES/SIGNIN.png)
+
+### Sign-up Page
+![](README_IMAGES/LOGIN.png)
+
+### Home Page
+![](README_IMAGES/HOME.png)
+![](README_IMAGES/HOME_2.png)
+
+### Explore Page
+![](README_IMAGES/EXPLORE.png)
+
+### Search Courses
+![](README_IMAGES/SEARCH.png)
+
+### Course Page
+![](README_IMAGES/MAIN_COURSE.png)
+
+### Profile Page
+![](README_IMAGES/PROFILE.png)
