@@ -82,7 +82,7 @@ The page will reload if you make edits.
 ![](README_IMAGES/SEARCH.png)
 
 ### Course Page
-![](README_IMAGES/MAIN_COURSES.png)
+![](README_IMAGES/COURSES.png)
 
 ### Profile Page
 ![](README_IMAGES/PROFILE.png)
