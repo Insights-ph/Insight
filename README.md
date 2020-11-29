@@ -25,10 +25,10 @@ Loven Garcia<br>
 
 
 ## Project Documentation
+* [Overview](#overview)
 * [Setup and Installation](#setup-and-installation)
 * [Running the program](#running-the-program)
-* [Overview](#overview)
-* [Sample Snapshots](#sample-snapshots)
+* [Sample Snapshots](#Sample-snapshots)
 
 
 <br>
@@ -135,7 +135,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ![](README_IMAGES/SEARCH.png)
 
 ### Course Page
-![](README_IMAGES/MAIN_COURSE.png)
+![](README_IMAGES/MAIN_COURSES.png)
 
 ### Profile Page
 ![](README_IMAGES/PROFILE.png)
