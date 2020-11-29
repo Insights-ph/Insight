@@ -14,6 +14,9 @@ Loven Garcia<br>
 
 <br>
 
+[![GitHub forks](https://img.shields.io/github/forks/Kahit-Ano/Insight.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/Kahit-Ano/Insight)
+[![GitHub stars](https://img.shields.io/github/stars/Kahit-Ano/Insight.svg?style=social&label=Star&maxAge=2592000)](https://github.com/Kahit-Ano/Insight)
+[![GitHub watchers](https://img.shields.io/github/watchers/Kahit-Ano/Insight.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/Kahit-Ano/Insight)
 
  </div>
 <br>
