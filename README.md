@@ -81,8 +81,11 @@ The page will reload if you make edits.
 ### Search Courses
 ![](README_IMAGES/SEARCH.png)
 
-### Course Page
+### My Courses Page
 ![](README_IMAGES/COURSES.png)
+
+### Specific Course Page
+![](README_IMAGES/MAIN_COURSE.png)
 
 ### Profile Page
 ![](README_IMAGES/PROFILE.png)
