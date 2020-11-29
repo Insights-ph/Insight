@@ -1,3 +1,42 @@
+<div align="center">
+
+# Insights.ph
+
+## Insights.ph is a web application developed by students from Mapua University for Hackfest 2020.
+<a>
+</a>
+
+#### Members:
+Rane Villanueva<br>
+Van Panugan<br>
+John Rivera<br>
+Loven Garcia<br>
+
+<br>
+
+[![GitHub contributors](https://img.shields.io/github/contributors/CoDev-20/Covid19Chatbot.svg)](https://github.com/Kahit-Ano/Insight)
+
+[![GitHub forks](https://img.shields.io/github/forks/CoDev-20/Covid19Chatbot.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/Kahit-Ano/Insight)
+[![GitHub stars](https://img.shields.io/github/stars/CoDev-20/Covid19Chatbot.svg?style=social&label=Star&maxAge=2592000)](https://github.com/Kahit-Ano/Insight)
+[![GitHub watchers](https://img.shields.io/github/watchers/CoDev-20/Covid19Chatbot.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/Kahit-Ano/Insight)
+
+ </div>
+<br>
+
+
+## Project Documentation
+* [Setup and Installation](#setup-and-installation)
+* [Running the program](#running-the-program)
+* [Overview](#overview)
+* [References](#references)
+* [Sample Snapshots](#sample-snapshots)
+
+
+<br>
+<div style='text-align: justify;'>
+
+
+
 # Insight
 
 To start, install dependencies:
