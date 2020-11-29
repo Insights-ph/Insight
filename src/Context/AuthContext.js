@@ -37,8 +37,6 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState({
-    name: "",
-    email: "",
     coursesEnrolled: [
       {
         courseId: "5",
@@ -99,27 +97,13 @@ export function AuthProvider({ children }) {
             isOnline: true,
           })
           .then(() => {
-            const name = data.user.displayName;
-
             setCurrentUser({
               ...currentUser,
-              name,
-              email: data.user.email,
+              ...data.user,
             });
           });
 
         setIsAuthenticated(true);
-        // await db
-        //   .collection("users")
-        //   .doc(data.user.uid)
-        //   .get()
-        //   .then((query) => {
-        //     const data = query.data();
-        //     setCurrentUser({
-        //       ...currentUser,
-        //       ...data,
-        //     });
-        //   });
       });
   }
 
@@ -135,8 +119,7 @@ export function AuthProvider({ children }) {
         user
           ? {
               ...currentUser,
-              name: user.displayName,
-              email: user.email,
+              user,
             }
           : { ...currentUser }
       );

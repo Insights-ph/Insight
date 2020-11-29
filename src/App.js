@@ -6,11 +6,11 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import MyCourses from "./Pages/MyCourses";
 import CoursePage from "./Pages/CoursePage";
-
+import Explore from "./Pages/Explore";
+import Profile from "./Pages/Profile";
 
 import PrivateRoute from "./HOCs/PrivateRoute";
 import AuthenticatedRoute from "./HOCs/AuthenticatedRoute";
-import Explore from "./Pages/Explore";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           <PrivateRoute exact path="/explore" component={Explore} />
           <PrivateRoute exact path="/explore" component={Homepage} />
           <PrivateRoute exact path="/courses/" component={MyCourses} />
+          <PrivateRoute exact path="/profile/" component={Profile} />
           <PrivateRoute
             exact
             path="/courses/:courseId"

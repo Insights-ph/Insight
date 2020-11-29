@@ -95,3 +95,18 @@ export const authors = [
     name: "John Rivera",
   },
 ];
+
+export const activities = [
+  {
+    status: "completed",
+    courseId: "5",
+  },
+  {
+    status: "taken",
+    courseId: "1",
+  },
+  {
+    status: "dropped",
+    courseId: "4",
+  },
+];
