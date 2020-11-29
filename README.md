@@ -3,7 +3,7 @@
 ![](README_IMAGES/LOGO.png)
 # Insight.ph
 
-## Insight.ph is a web application developed by students from Mapua University for Hackfest 2020.
+## Insight.ph is a mobile-first progressive web application (PWA) developed by students from Mapua University for Hackfest 2020.
 <a>
 </a>
 
